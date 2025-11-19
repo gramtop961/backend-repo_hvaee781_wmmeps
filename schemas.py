@@ -38,8 +38,12 @@ class Product(BaseModel):
     category: str = Field(..., description="Product category")
     in_stock: bool = Field(True, description="Whether product is in stock")
 
-# Add your own schemas here:
-# --------------------------------------------------
+# Lead schema for contact form submissions
+class Lead(BaseModel):
+    name: str = Field(..., description="Name of the lead")
+    email: str = Field(..., description="Contact email")
+    company: Optional[str] = Field(None, description="Company name")
+    message: Optional[str] = Field(None, description="Message from lead")
 
 # Note: The Flames database viewer will automatically:
 # 1. Read these schemas from GET /schema endpoint
